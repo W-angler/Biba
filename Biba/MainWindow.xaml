@@ -1,0 +1,35 @@
+﻿<Window x:Class="Biba.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biba"
+        mc:Ignorable="d"
+        Title="Biba" 
+        Icon="/Biba;component/icon.ico"
+        Closed="Window_Closed"
+        Height="320" Width="480" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock Text="登录" 
+                   Height="24" Margin="10,10,0,0"
+                   HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock Height="50" Margin="24,48,0,0" Foreground="Blue"
+                   HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="12" FontStyle="Italic" Padding="5">  
+            提示: 请使用正确的用户名和密码登录使用系统<LineBreak />
+            如果没有账户，请点击
+            <TextBlock>
+                 <Hyperlink Click="Register" FontSize="14" FontStyle="Italic">注册</Hyperlink>  
+            </TextBlock>
+        </TextBlock>
+        <Grid HorizontalAlignment="Center">
+            <TextBlock Height="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="66,120,0,0" Text="用户名"/>
+            <TextBox Name="username" Height="24" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="118,115,0,0"/>
+        </Grid>
+        <Grid HorizontalAlignment="Center">
+            <TextBlock Height="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="66,172,0,0" Text="密码" />
+            <PasswordBox Name="password"  Height="24" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="118,168,0,0" />
+        </Grid>
+        <Button Name="login" Content="登录" Height="24" Width="120" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,211,0,0" Click="Login" />
+        <TextBlock Name="error" Height="24" Width="247" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,253,0,0" OpacityMask="Crimson" Foreground="#FFE5572C"/>
+    </Grid>
+</Window>

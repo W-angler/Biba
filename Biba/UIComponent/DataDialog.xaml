@@ -1,0 +1,42 @@
+﻿<Window x:Class="Biba.UIComponent.DataDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biba"
+        Icon="/Biba;component/icon.ico"
+        mc:Ignorable="d" Title="数据" Height="640" Width="860" WindowStartupLocation="CenterScreen">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Close" Executed="CommandBinding_Close"></CommandBinding>
+    </Window.CommandBindings>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top">
+            <Menu>
+                <MenuItem Header="操作">
+                    <MenuItem Click="CommandBinding_New" Header="新建" IsEnabled="True"/>
+                    <Separator></Separator>
+                    <MenuItem Command="Close"/>
+                </MenuItem>
+                <MenuItem Header="关于" Click="About_Click"/>
+            </Menu>
+        </StackPanel>
+        <Grid DockPanel.Dock="Bottom">
+            <DataGrid x:Name="datas" ItemsSource="{Binding}"
+                      AutoGenerateColumns="False"  LoadingRow="Subjects_LoadingRow" CanUserAddRows="False">
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Click="CommandBinding_New" Header="新建" IsEnabled="True"/>
+                        <MenuItem Click="Edit_Click" Header="编辑" IsEnabled="True"/>
+                        <MenuItem Click="CommandBinding_Delete" Header="删除" IsEnabled="True"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="键" Width="2*" Binding="{Binding Name, Mode=TwoWay}"/>
+                    <DataGridTextColumn Header="值" Width="2*" Binding="{Binding Value, Mode=TwoWay}"/>
+                    <DataGridTextColumn Header="级别" Width="*" Binding="{Binding Level, Mode=TwoWay}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </DockPanel>
+</Window>
